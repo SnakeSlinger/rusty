@@ -1,4 +1,5 @@
-# rusty
-Rust has grown in popularity.
-Big companies are using it more and more over time.
-It might be worth learning the basics of Rust.
+# Let us get Rusty
+**TABLE OF CONTENTS**
+
+**1. Common Programming Concepts**
+1.1. Variables and Mutability
