@@ -30,7 +30,7 @@ TABLE OF CONTENTS
 ## 1. Common Programming Concepts
 
 ### 1.1. Variables and Mutability
-println!("Hello, world!");
+println!("Hello, world!"); 
 let mut guess = String::new();
 
 ### 1.2. Data Types
