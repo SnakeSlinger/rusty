@@ -30,7 +30,8 @@ TABLE OF CONTENTS
 ## 1. Common Programming Concepts
 
 ### 1.1. Variables and Mutability
-I’m a beginner in networking, passionate about learning Cisco technologies through hands-on projects. I’ve worked with Cisco RV320 and RV160 routers to set up VPNs, configure VLANs, and troubleshoot real-world issues. My goal is to become a network administrator and achieve CCNA certification.
+println!("Hello, world!");
+let mut guess = String::new();
 
 ### 1.2. Data Types
 This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
