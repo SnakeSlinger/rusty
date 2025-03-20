@@ -30,18 +30,21 @@ TABLE OF CONTENTS
 ## 1. Common Programming Concepts
 
 ### 1.1. Variables and Mutability
-rand = "0.8.5"  <br/><br/>
-use std::io;  
-use rand::Rng;  
-use std::cmp::Ordering;  <br/><br/>
-println!("Hello, world!");  
-let mut guess = String::new();  
 ```rust
-sd
-sd sd
+[dependencies]
+rand = "0.8.5"
 ```
-io::stdin().read_line(&mut guess).expect("Failed to read line");  
-let secret_number = rand::thread_rng().gen_range(1..=100);  
+```rust
+use std::io;
+use rand::Rng;
+use std::cmp::Ordering;
+println!("Hello, world!");
+let mut guess = String::new();
+```
+```rust
+io::stdin().read_line(&mut guess).expect("Failed to read line");
+let secret_number = rand::thread_rng().gen_range(1..=100);
+```
 
 ### 1.2. Data Types
 This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
