@@ -1,4 +1,4 @@
-# Cisco Networking Portfolio
+# The Rust Journey of a Person
 **John Doe** | Aspiring Network Administrator | Learning Cisco VPN and Routing  
 [LinkedIn](https://linkedin.com/in/your-profile) | [Cisco Learning Network](https://learningnetwork.cisco.com/your-profile)
 
