@@ -36,10 +36,10 @@ use rand::Rng;
 use std::cmp::Ordering;  <br/><br/>
 println!("Hello, world!");  
 let mut guess = String::new();  
-'''rust
+```rust
 sd
 sd sd
-'''
+```
 io::stdin().read_line(&mut guess).expect("Failed to read line");  
 let secret_number = rand::thread_rng().gen_range(1..=100);  
 
