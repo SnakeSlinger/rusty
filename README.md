@@ -30,10 +30,10 @@ TABLE OF CONTENTS
 ## 1. Common Programming Concepts
 
 ### 1.1. Variables and Mutability
-rand = "0.8.5"  
+rand = "0.8.5"  <br>
 use std::io;  
 use rand::Rng;  
-use std::cmp::Ordering;    
+use std::cmp::Ordering;  
 println!("Hello, world!");  
 let mut guess = String::new();  
 io::stdin().read_line(&mut guess).expect("Failed to read line");  
