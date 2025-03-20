@@ -44,6 +44,9 @@ println!("Hello, world!");
 let mut guess = String::new();
 io::stdin().read_line(&mut guess).expect("Failed to read line");
 let secret_number = rand::thread_rng().gen_range(1..=100);
+let x = 5;
+let mut x = 5;
+const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 ```
 ```rust
 use rand::Rng;
@@ -82,17 +85,272 @@ fn main() {
     }
 }
 ```
+```rust
+fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+    }
+
+    println!("The value of x is: {x}");
+}
+```
+```rust
+fn main() {
+    let spaces = "   ";
+    let spaces = spaces.len();
+}
+```
+```rust
+let guess: u32 = "42".parse().expect("Not a number!");
+```
+
 ### 1.2. Data Types
-This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
+```rust
+let y: f32 = 3.0; // f32
+let f: bool = false; // with explicit type annotation
+let z: char = 'ℤ'; // with explicit type annotation
+```
+```rust
+let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+let tup = (500, 6.4, 1);
+let (x, y, z) = tup;
+println!("The value of y is: {y}");
+
+let x: (i32, f64, u8) = (500, 6.4, 1);
+let five_hundred = x.0;
+let six_point_four = x.1;
+let one = x.2;
+
+let a = [1, 2, 3, 4, 5];
+let months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+let a = [3; 5];
+
+let a = [1, 2, 3, 4, 5];
+let first = a[0];
+let second = a[1];
+```
 
 ### 1.3. Functions
-This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
+**Functions**
+```rust
+fn main() {
+    println!("Hello, world!");
+
+    another_function();
+}
+
+fn another_function() {
+    println!("Another function.");
+}
+```
+**Parameters**
+```rust
+fn main() {
+    another_function(5);
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is: {x}");
+}
+```
+```rust
+fn main() {
+    print_labeled_measurement(5, 'h');
+}
+
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {value}{unit_label}");
+}
+```
+**Statements and Expressions**
+```rust
+fn main() {
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!("The value of y is: {y}");
+}
+```
+**Functions with Return Values**
+```rust
+fn five() -> i32 {
+    5
+}
+
+fn main() {
+    let x = five();
+
+    println!("The value of x is: {x}");
+}
+```
+```rust
+fn main() {
+    let x = plus_one(5);
+
+    println!("The value of x is: {x}");
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
 
 ### 1.4. Comments
-This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
+```rust
+// So we’re doing something complicated here, long enough that we need
+// multiple lines of comments to do it! Whew! Hopefully, this comment will
+// explain what’s going on.
+```
 
 ### 1.5. Control Flow
-This portfolio showcases my Cisco networking projects to demonstrate my practical skills to potential employers. It includes detailed write-ups of my RV160 setups, a troubleshooting case study with the RV320, and my learning journey.
+**if Expressions**
+```rust
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+}
+```
+```rust
+fn main() {
+    let number = 3;
+
+    if number != 0 {
+        println!("number was something other than zero");
+    }
+}
+```
+**Handling Multiple Conditions with else if**
+```rust
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
+```
+**Using if in a let Statement**
+```rust
+fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+**Repeating Code with loop**
+```rust
+fn main() {
+    loop {
+        println!("again!");
+    }
+}
+```
+**Returning Values from Loops**
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+**Loop Labels to Disambiguate Between Multiple Loops**
+```rust
+fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+}
+```
+**Conditional Loops with while**
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+**Looping Through a Collection with for**
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("the value is: {}", a[index]);
+
+        index += 1;
+    }
+}
+```
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("the value is: {element}");
+    }
+}
+```
+```rust
+fn main() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
+}
+```
 
 ## 2. Understanding Ownership
 
