@@ -33,9 +33,13 @@ TABLE OF CONTENTS
 rand = "0.8.5"  <br/><br/>
 use std::io;  
 use rand::Rng;  
-use std::cmp::Ordering;  
+use std::cmp::Ordering;  <br/><br/>
 println!("Hello, world!");  
 let mut guess = String::new();  
+'''rust
+sd
+sd sd
+'''
 io::stdin().read_line(&mut guess).expect("Failed to read line");  
 let secret_number = rand::thread_rng().gen_range(1..=100);  
 
