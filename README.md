@@ -6,24 +6,24 @@
 
 TABLE OF CONTENTS
 
-1. Common Programming Concepts
+1. Common Programming Concepts    
    1.1. Variables and Mutability    
-   1.2. Data Types
-   1.3. Functions
-   1.4. Comments
-   1.5. Control Flow
-2. Understanding Ownership
-   2.1. What is Ownership?
-   2.2. References and Borrowing
-   2.3. The Slice Type
-3. Using Structs to Structrure Related Data
-   3.1. Defining and Instantiating Structs
-   3.2. An Example Program Using Structs
-   3.3. Method Syntax
-4. Enums and Pattern Matching
-   4.1. Defining an Enum
-   4.2. The match Control Flow Construct
-   4.3. Concise Control Flow with if let and let else
+   1.2. Data Types    
+   1.3. Functions    
+   1.4. Comments    
+   1.5. Control Flow    
+2. Understanding Ownership    
+   2.1. What is Ownership?    
+   2.2. References and Borrowing    
+   2.3. The Slice Type    
+3. Using Structs to Structrure Related Data    
+   3.1. Defining and Instantiating Structs    
+   3.2. An Example Program Using Structs    
+   3.3. Method Syntax    
+4. Enums and Pattern Matching    
+   4.1. Defining an Enum    
+   4.2. The match Control Flow Construct    
+   4.3. Concise Control Flow with if let and let else    
 
 ---
 
