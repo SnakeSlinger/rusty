@@ -355,15 +355,16 @@ fn main() {
 ## 2. Understanding Ownership
 
 ### 2.1. What is Ownership?
-**Objective**: Configure an OpenVPN server on the Cisco RV160 to enable secure remote access to my home network.  
-**Steps**:  
-- Enabled OpenVPN in the RV160 web interface (VPN > OpenVPN).  
-- Generated a CA certificate and client certificate using the router’s built-in tools.  
-- Exported the `.ovpn` configuration file and set up the OpenVPN client on a Windows 11 PC.  
-- Tested the connection and accessed the internal network (192.168.1.0/24).  
-**Challenges**: Faced a connection timeout due to a firewall rule blocking UDP port 1194. Resolved by adding a firewall rule to allow the traffic.  
-**Result**: Successfully connected to the VPN and accessed my home network remotely.  
-[See Configuration File](rv160-openvpn-config.ovpn) | [Screenshots](screenshots/rv160-openvpn-setup.png)
+**The String Type**
+```rust
+fn main() {
+    let mut s = String::from("hello");
+
+    s.push_str(", world!"); // push_str() appends a literal to a String
+
+    println!("{s}"); // This will print `hello, world!`
+}
+```
 
 ### 2.2. References and Borrowing
 **Objective**: Segment my network into “Work” and “Guest” VLANs for better security.  
