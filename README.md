@@ -432,6 +432,21 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
     a_string  // a_string is returned and moves out to the calling function
 }
 ```
+```rust
+fn main() {
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of '{s2}' is {len}.");
+}
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the length of a String
+
+    (s, length)
+}
+```
 
 ### 2.2. References and Borrowing
 **Objective**: Segment my network into “Work” and “Guest” VLANs for better security.  
