@@ -365,6 +365,15 @@ fn main() {
     println!("{s}"); // This will print `hello, world!`
 }
 ```
+**Variables and Data Interacting with Clone**
+```rust
+fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+
+    println!("s1 = {s1}, s2 = {s2}");
+}
+```
 
 ### 2.2. References and Borrowing
 **Objective**: Segment my network into “Work” and “Guest” VLANs for better security.  
