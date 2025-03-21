@@ -374,6 +374,23 @@ fn main() {
     println!("s1 = {s1}, s2 = {s2}");
 }
 ```
+**Ownership and Functions**
+```rust
+fn main() {
+    let s = String::from("hello");  // s comes into scope
+
+    takes_ownership(s);             // s's value moves into the function...
+                                    // ... and so is no longer valid here
+
+    let x = 5;                      // x comes into scope
+
+    makes_copy(x);                  // because i32 implements the Copy trait,
+                                    // x does NOT move into the function,
+    println!("{}", x);              // so it's okay to use x afterward
+
+} // Here, x goes out of scope, then s. But because s's value was moved, nothing
+  // special happens.
+```
 
 ### 2.2. References and Borrowing
 **Objective**: Segment my network into “Work” and “Guest” VLANs for better security.  
