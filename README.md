@@ -449,13 +449,19 @@ fn calculate_length(s: String) -> (String, usize) {
 ```
 
 ### 2.2. References and Borrowing
-**Objective**: Segment my network into “Work” and “Guest” VLANs for better security.  
-**Steps**:  
-- Created VLAN 10 (Work) and VLAN 20 (Guest) in the RV160 web interface (LAN > VLAN Settings).  
-- Assigned ports: LAN 1-2 to VLAN 10, LAN 3-4 to VLAN 20.  
-- Configured DHCP for each VLAN with separate IP ranges (192.168.10.0/24 for Work, 192.168.20.0/24 for Guest).  
-**Result**: Devices on different VLANs couldn’t communicate, improving network security.  
-[Screenshots](screenshots/rv160-vlan-config.png)
+```rust
+fn main() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{s1}' is {len}.");
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+```
 
 ### 2.3. The Slice Type
 **Objective**: Prioritize video streaming traffic over file downloads.  
