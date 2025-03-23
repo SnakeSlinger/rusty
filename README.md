@@ -462,6 +462,18 @@ fn calculate_length(s: &String) -> usize {
     s.len()
 }
 ```
+**Mutable References**
+```rust
+fn main() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
 
 ### 2.3. The Slice Type
 **Objective**: Prioritize video streaming traffic over file downloads.  
