@@ -540,6 +540,15 @@ fn main() {
     // totally invalid!
 }
 ```
+**String Slices**
+```rust
+fn main() {
+    let s = String::from("hello world");
+
+    let hello = &s[0..5];
+    let world = &s[6..11];
+}
+```
 
 ## 3. Using Structs to Structrure Related Data
 
