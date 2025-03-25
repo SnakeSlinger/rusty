@@ -549,6 +549,52 @@ fn main() {
     let world = &s[6..11];
 }
 ```
+```rust
+#![allow(unused)]
+fn main() {
+let s = String::from("hello");
+
+let slice = &s[0..2];
+let slice = &s[..2];
+}
+```
+```rust
+#![allow(unused)]
+fn main() {
+let s = String::from("hello");
+
+let len = s.len();
+
+let slice = &s[3..len];
+let slice = &s[3..];
+}
+```
+```rust
+#![allow(unused)]
+fn main() {
+let s = String::from("hello");
+
+let len = s.len();
+
+let slice = &s[0..len];
+let slice = &s[..];
+}
+```
+```rust
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+
+fn main() {}
+```
 
 ## 3. Using Structs to Structrure Related Data
 
