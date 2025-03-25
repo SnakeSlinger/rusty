@@ -500,12 +500,21 @@ fn main() {
 ```
 
 ### 2.3. The Slice Type
-**Objective**: Prioritize video streaming traffic over file downloads.  
-**Steps**:  
-- Enabled QoS in the RV160 web interface (QoS > Bandwidth Management).  
-- Set a rule to prioritize traffic on port 1935 (used for RTMP streaming) over other traffic.  
-**Result**: Streaming quality improved significantly during high network usage.  
-[Screenshots](screenshots/rv160-qos-config.png)
+```rust
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
+}
+
+fn main() {}
+```
 
 ## 3. Using Structs to Structrure Related Data
 
