@@ -645,9 +645,77 @@ assert_eq!(slice, &[2, 3]);
 ## 3. Using Structs to Structrure Related Data
 
 ### 3.1. Defining and Instantiating Structs
-**Issue**: Encountered a 502 Bad Gateway error after replacing the RV320’s default certificate with a newly generated one.  
-**Impact**: Lost access to the admin interface (https://192.168.1.1).  
-**Details**: The router’s Nginx server (v1.16.1) couldn’t communicate with the backend service, likely due to a certificate misconfiguration.
+```rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {}
+```
+```rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {
+    let user1 = User {
+        active: true,
+        username: String::from("someusername123"),
+        email: String::from("someone@example.com"),
+        sign_in_count: 1,
+    };
+}
+```
+```rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {
+    let mut user1 = User {
+        active: true,
+        username: String::from("someusername123"),
+        email: String::from("someone@example.com"),
+        sign_in_count: 1,
+    };
+
+    user1.email = String::from("anotheremail@example.com");
+}
+```
+```rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn build_user(email: String, username: String) -> User {
+    User {
+        active: true,
+        username: username,
+        email: email,
+        sign_in_count: 1,
+    }
+}
+
+fn main() {
+    let user1 = build_user(
+        String::from("someone@example.com"),
+        String::from("someusername123"),
+    );
+}
+```
+**Using the Field Init Shorthand**
 
 ### 3.2. An Example Program Using Structs
 **Steps**:  
