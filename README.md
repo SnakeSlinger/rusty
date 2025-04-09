@@ -1661,6 +1661,75 @@ fn main() {
     }
 }
 ```
+## 5. Defining Modules to Control Scope and Privacy
+### 5.1. Packages and Crates
+```rust
+$ cargo new my-project
+     Created binary (application) `my-project` package
+$ ls my-project
+Cargo.toml
+src
+$ ls my-project/src
+main.rs
+```
+### 5.2. Defining Modules to Control Scope and Privacy
+**Modules Cheat Sheet**
+```rust
+backyard
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── garden
+    │   └── vegetables.rs
+    ├── garden.rs
+    └── main.rs
+```
+```rust
+use crate::garden::vegetables::Asparagus;
+
+pub mod garden;
+
+fn main() {
+    let plant = Asparagus {};
+    println!("I'm growing {plant:?}!");
+}
+```
+```rust
+pub mod vegetables;
+```
+```rust
+#[derive(Debug)]
+pub struct Asparagus {}
+```
+**Grouping Related Code in Modules**
+```rust
+mod front_of_house {
+    mod hosting {
+        fn add_to_waitlist() {}
+
+        fn seat_at_table() {}
+    }
+
+    mod serving {
+        fn take_order() {}
+
+        fn serve_order() {}
+
+        fn take_payment() {}
+    }
+}
+```
+```rust
+crate
+ └── front_of_house
+     ├── hosting
+     │   ├── add_to_waitlist
+     │   └── seat_at_table
+     └── serving
+         ├── take_order
+         ├── serve_order
+         └── take_payment
+```
 
 ## Connect with Me
 - [LinkedIn](https://linkedin.com/in/your-profile)
