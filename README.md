@@ -1803,6 +1803,191 @@ pub fn eat_at_restaurant() {
     let order2 = back_of_house::Appetizer::Salad;
 }
 ```
+### 5.4. Bringing Paths into Scope with the use Keyword
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+**Creating Idiomatic use Paths**
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+use crate::front_of_house::hosting::add_to_waitlist;
+
+pub fn eat_at_restaurant() {
+    add_to_waitlist();
+}
+```
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+}
+```
+```rust
+use std::fmt;
+use std::io;
+
+fn function1() -> fmt::Result {
+    // --snip--
+}
+
+fn function2() -> io::Result<()> {
+    // --snip--
+}
+```
+**Providing New Names with the as Keyword**
+```rust
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+    // --snip--
+}
+
+fn function2() -> IoResult<()> {
+    // --snip--
+}
+```
+**Re-exporting Names with pub use**
+```rust
+mod front_of_house {
+    pub mod hosting {
+        pub fn add_to_waitlist() {}
+    }
+}
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
+}
+```
+**Using External Packages**
+```rust
+rand = "0.8.5"
+```
+```rust
+use std::io;
+use rand::Rng;
+
+fn main() {
+    println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    println!("The secret number is: {secret_number}");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {guess}");
+}
+```
+```rust
+#![allow(unused)]
+fn main() {
+use std::collections::HashMap;
+}
+```
+**Using Nested Paths to Clean Up Large use Lists**
+```rust
+use rand::Rng;
+// --snip--
+use std::cmp::Ordering;
+use std::io;
+// --snip--
+
+fn main() {
+    println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    println!("The secret number is: {secret_number}");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {guess}");
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
+}
+```
+```rust
+use rand::Rng;
+// --snip--
+use std::{cmp::Ordering, io};
+// --snip--
+
+fn main() {
+    println!("Guess the number!");
+
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    println!("The secret number is: {secret_number}");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+    println!("You guessed: {guess}");
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
+}
+```
+```rust
+use std::io;
+use std::io::Write;
+```
+```rust
+use std::io::{self, Write};
+```
+**The Glob Operator**
+```rust
+#![allow(unused)]
+fn main() {
+use std::collections::*;
+}
+```
 
 ## Connect with Me
 - [LinkedIn](https://linkedin.com/in/your-profile)
