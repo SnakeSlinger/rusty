@@ -1988,6 +1988,18 @@ fn main() {
 use std::collections::*;
 }
 ```
+### 5.5. Separating Modules into Different Files
+```rust
+pub mod hosting {
+    pub fn add_to_waitlist() {}
+}
+```
+```rust
+pub mod hosting;
+```
+```rust
+pub fn add_to_waitlist() {}
+```
 
 ## Connect with Me
 - [LinkedIn](https://linkedin.com/in/your-profile)
